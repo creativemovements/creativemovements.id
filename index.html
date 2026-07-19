@@ -23,12 +23,13 @@
 <body class="bg-white font-sans text-gray-800 antialiased selection:bg-brandPurple/20">
 
     <!-- ========================================================================= -->
-    <!-- 1. HEADER & NAVIGASI (Kembali ke Putih Bersih Modern)                     -->
+    <!-- 1. HEADER & NAVIGASI (Nama Web Otomatis Tersembunyi di HP)                -->
     <!-- ========================================================================= -->
-    <header class="bg-white/90 backdrop-blur-md border-b border-gray-100 px-6 lg:px-16 py-4 flex items-center justify-between sticky top-0 z-50">
-        <a href="#beranda" class="flex items-center gap-3 font-black text-xl text-brandPurple tracking-tight">
+    <header class="bg-white/90 backdrop-blur-md border-b border-gray-100 px-4 sm:px-6 lg:px-16 py-4 flex items-center justify-between sticky top-0 z-50">
+        <a href="#beranda" class="flex items-center gap-2.5 font-black text-xl text-brandPurple tracking-tight">
             <img src="https://raw.githubusercontent.com/kayunastudio/creativemovements.id/main/logo-cm.png" alt="Creative Movements Logo" class="w-8 h-8 object-contain">
-            Creative<span class="text-brandOrange">Movements</span>
+            <!-- text-hidden-on-mobile: Nama web disembunyikan di HP, muncul mulai layar md/lg -->
+            <span class="hidden md:inline">Creative<span class="text-brandOrange">Movements</span></span>
         </a>
         
         <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
@@ -39,13 +40,14 @@
             <a href="#hubungi-kami" class="nav-link transition hover:text-brandPurple">Hubungi Kami</a>
         </nav>
         
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-3 sm:gap-4">
             <button onclick="toggleModal('Fitur pencarian belum tersedia untuk demo ini.')" class="text-gray-500 hover:text-brandPurple text-sm lg:text-base transition"><i class="fas fa-search"></i></button>
-            <button onclick="openFormModal('Pendaftaran Relawan')" class="bg-brandPurple text-white px-4 lg:px-5 py-2 rounded-full text-xs lg:text-sm font-semibold hover:bg-opacity-90 shadow-md shadow-purple-200 transition"> Daftar </button>
-            <button id="menu-btn" class="lg:hidden text-gray-700 text-lg focus:outline-none"><i class="fas fa-bars"></i></button>
+            <button onclick="openFormModal('Pendaftaran Relawan')" class="bg-brandPurple text-white px-3 sm:px-5 py-2 rounded-full text-xs lg:text-sm font-semibold hover:bg-opacity-90 shadow-md shadow-purple-200 transition"> Daftar </button>
+            <button id="menu-btn" class="lg:hidden text-gray-700 text-lg focus:outline-none px-1"><i class="fas fa-bars"></i></button>
         </div>
     </header>
 
+    <!-- MENU MOBILE DRAWER -->
     <div id="mobile-menu" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 lg:hidden transition-opacity">
         <div class="bg-white w-3/4 max-w-xs h-full p-6 flex flex-col justify-between shadow-2xl">
             <div>
@@ -69,41 +71,40 @@
 
 
     <!-- ========================================================================= -->
-    <!-- 2. BERANDA SECTION (Hero - Ditambahkan Background Foto Kustom)            -->
+    <!-- 2. BERANDA SECTION (Hero - Optimalisasi Flex & Grid Mobile)               -->
     <!-- ========================================================================= -->
-    <section id="beranda" class="relative px-6 lg:px-16 py-16 lg:py-28 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[calc(100vh-73px)] bg-cover bg-center overflow-hidden"
+    <section id="beranda" class="relative px-4 sm:px-6 lg:px-16 py-12 lg:py-28 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[calc(100vh-73px)] bg-cover bg-center overflow-hidden"
              style="background-image: url('https://raw.githubusercontent.com/kayunastudio/creativemovements.id/main/bg-header.png');">
         
-        <!-- Mask Lapisan Gelap Tingkat Kontras Tinggi agar teks putih di atasnya tajam dan mudah dibaca -->
         <div class="absolute inset-0 bg-slate-950/80 -z-10"></div>
 
-        <div class="lg:col-span-7 text-center lg:text-left relative z-10">
-            <span class="bg-brandYellow text-gray-950 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider shadow-md">Aksi Nyata Pemuda</span>
-            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white mt-6 leading-tight">
+        <div class="lg:col-span-7 text-center lg:text-left relative z-10 mt-4 lg:mt-0">
+            <span class="bg-brandYellow text-gray-950 text-[10px] sm:text-xs font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-md inline-block">Aksi Nyata Pemuda</span>
+            <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-white mt-5 sm:mt-6 leading-tight">
                 Membangun Perubahan <br class="hidden lg:inline"> Lewat <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-brandOrange to-brandYellow">Gerakan Kreatif</span>
             </h1>
-            <p class="text-slate-200 text-sm lg:text-base mt-6 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
+            <p class="text-slate-300 text-xs sm:text-base mt-4 sm:mt-6 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
                 Creative Movements berkonsentrasi mewadahi kolaborasi pemuda untuk menciptakan solusi berdampak di bidang sosial, pendidikan, dan lingkungan demi masyarakat Indonesia yang inklusif.
             </p>
-            <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <a href="#program" class="bg-brandOrange text-white text-center px-8 py-3.5 rounded-full font-bold shadow-lg shadow-orange-900/40 hover:bg-opacity-90 transition transform hover:-translate-y-0.5">Jelajahi Program</a>
-                <a href="#kerja-sama" class="bg-white/10 text-white backdrop-blur border border-white/20 text-center px-8 py-3.5 rounded-full font-bold hover:bg-white/20 transition transform hover:-translate-y-0.5">Ajukan Kerja Sama</a>
+            <div class="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
+                <a href="#program" class="bg-brandOrange text-white text-center text-xs sm:text-sm px-6 sm:px-8 py-3.5 rounded-full font-bold shadow-lg shadow-orange-900/40 hover:bg-opacity-90 transition transform hover:-translate-y-0.5">Jelajahi Program</a>
+                <a href="#kerja-sama" class="bg-white/10 text-white backdrop-blur border border-white/20 text-center text-xs sm:text-sm px-6 sm:px-8 py-3.5 rounded-full font-bold hover:bg-white/20 transition transform hover:-translate-y-0.5">Ajukan Kerja Sama</a>
             </div>
         </div>
         
-        <!-- Grid Ringkasan Kanan -->
-        <div class="lg:col-span-5 grid grid-cols-12 gap-4 relative z-10">
-            <div class="col-span-12 bg-gradient-to-br from-brandPurple/90 to-purple-950/90 backdrop-blur-sm border border-purple-500/20 p-6 text-white flex flex-col justify-end shadow-2xl rounded-2xl min-h-[160px] group">
-                <div class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center mb-4"><i class="fas fa-users text-brandYellow"></i></div>
-                <h3 class="font-bold text-base sm:text-lg">1,200+ Relawan Aktif</h3>
-                <p class="text-xs text-purple-200 mt-1">Bergerak tersebar di 15 provinsi Indonesia.</p>
+        <!-- Grid Ringkasan Kanan (Mobile-friendly Stack) -->
+        <div class="lg:col-span-5 grid grid-cols-12 gap-3 sm:gap-4 relative z-10 mb-4 lg:mb-0">
+            <div class="col-span-12 bg-gradient-to-br from-brandPurple/90 to-purple-950/90 backdrop-blur-sm border border-purple-500/20 p-5 sm:p-6 text-white flex flex-col justify-end shadow-2xl rounded-2xl min-h-[130px] sm:min-h-[160px] group">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center mb-3 sm:mb-4"><i class="fas fa-users text-brandYellow text-sm sm:text-base"></i></div>
+                <h3 class="font-bold text-sm sm:text-lg">1,200+ Relawan Aktif</h3>
+                <p class="text-[11px] sm:text-xs text-purple-200 mt-1">Bergerak tersebar di 15 provinsi Indonesia.</p>
             </div>
-            <div class="col-span-6 bg-brandYellow/95 p-5 flex flex-col justify-between shadow-2xl rounded-2xl min-h-[140px] transform hover:scale-[1.02] transition">
-                <i class="fas fa-heart text-brandOrange text-2xl"></i>
+            <div class="col-span-6 bg-brandYellow/95 p-4 sm:p-5 flex flex-col justify-between shadow-2xl rounded-2xl min-h-[110px] sm:min-h-[140px] transform hover:scale-[1.02] transition">
+                <i class="fas fa-heart text-brandOrange text-xl sm:text-2xl"></i>
                 <span class="font-black text-xs sm:text-sm text-gray-950">50+ Rumah Belajar</span>
             </div>
-            <div class="col-span-6 bg-brandOrange/95 p-5 flex flex-col justify-between text-white shadow-2xl rounded-2xl min-h-[140px] transform hover:scale-[1.02] transition">
-                <i class="fas fa-earth-asia text-white text-2xl"></i>
+            <div class="col-span-6 bg-brandOrange/95 p-4 sm:p-5 flex flex-col justify-between text-white shadow-2xl rounded-2xl min-h-[110px] sm:min-h-[140px] transform hover:scale-[1.02] transition">
+                <i class="fas fa-earth-asia text-white text-xl sm:text-2xl"></i>
                 <span class="font-black text-xs sm:text-sm">12 Ton Sampah</span>
             </div>
         </div>
@@ -113,62 +114,63 @@
     <!-- ========================================================================= -->
     <!-- 3. TENTANG KAMI SECTION                                                    -->
     <!-- ========================================================================= -->
-    <section id="tentang-kami" class="px-6 lg:px-16 py-16 lg:py-24 border-t border-gray-100 bg-gray-50 bg-opacity-50">
-        <div class="max-w-3xl mx-auto text-center mb-16">
-            <span class="text-xs font-bold text-brandPurple tracking-widest uppercase">Mengenal Kami</span>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-2">Energi Muda untuk Keadilan Sosial</h2>
-            <div class="w-16 h-1 bg-brandOrange mx-auto mt-4 rounded-full"></div>
+    <section id="tentang-kami" class="px-4 sm:px-6 lg:px-16 py-12 lg:py-24 border-t border-gray-100 bg-gray-50 bg-opacity-50">
+        <div class="max-w-3xl mx-auto text-center mb-10 lg:mb-16">
+            <span class="text-[10px] sm:text-xs font-bold text-brandPurple tracking-widest uppercase">Mengenal Kami</span>
+            <h2 class="text-xl sm:text-3xl font-extrabold text-gray-900 mt-1.5">Energi Muda untuk Keadilan Sosial</h2>
+            <div class="w-12 sm:w-16 h-1 bg-brandOrange mx-auto mt-3 rounded-full"></div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div class="space-y-6">
-                <h3 class="text-xl font-bold text-gray-900">Siapa Creative Movements?</h3>
-                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div class="space-y-4 sm:space-y-6">
+                <h3 class="text-lg sm:text-xl font-bold text-gray-900">Siapa Creative Movements?</h3>
+                <p class="text-gray-600 text-xs sm:text-base leading-relaxed">
                     Kami adalah kolektif organisasi kepemudaan non-profit yang percaya bahwa tantangan sosial yang kompleks di Indonesia memerlukan pendekatan yang segar, inovatif, dan berkelanjutan. 
                 </p>
-                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                <p class="text-gray-600 text-xs sm:text-base leading-relaxed">
                     Melalui pemberdayaan pemuda lokal sebagai agen perubahan, kami merancang program langsung di akar rumput guna menjawab masalah kesenjangan edukasi, krisis iklim, serta inklusivitas sosial.
                 </p>
-                <div class="grid grid-cols-2 gap-4 pt-4">
+                <!-- Stacked grid on mobile, side-by-side on sm -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
                     <div class="p-4 bg-white rounded-xl border border-gray-100 shadow-sm flex items-start gap-3">
-                        <i class="fas fa-eye text-brandPurple mt-1"></i>
+                        <i class="fas fa-eye text-brandPurple mt-1 flex-shrink-0"></i>
                         <div>
-                            <h4 class="font-bold text-sm text-gray-900">Visi Kami</h4>
-                            <p class="text-[11px] text-gray-500 mt-1">Menjadi wadah bagi generasi muda yang kreatif, inovatif, dan ingin belajar membangun negeri.</p>
+                            <h4 class="font-bold text-xs sm:text-sm text-gray-900">Visi Kami</h4>
+                            <p class="text-[11px] text-gray-500 mt-0.5">Menjadi wadah bagi generasi muda yang kreatif, inovatif, dan ingin belajar membangun negeri.</p>
                         </div>
                     </div>
                     <div class="p-4 bg-white rounded-xl border border-gray-100 shadow-sm flex items-start gap-3">
-                        <i class="fas fa-bullseye text-brandOrange mt-1"></i>
+                        <i class="fas fa-bullseye text-brandOrange mt-1 flex-shrink-0"></i>
                         <div>
-                            <h4 class="font-bold text-sm text-gray-900">Misi Kami</h4>
-                            <p class="text-[11px] text-gray-500 mt-1">Mengakomodasi inkubasi ide sosial serta aksi gotong royong terpadu.</p>
+                            <h4 class="font-bold text-xs sm:text-sm text-gray-900">Misi Kami</h4>
+                            <p class="text-[11px] text-gray-500 mt-0.5">Mengakomodasi inkubasi ide sosial serta aksi gotong royong terpadu.</p>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="bg-white border border-gray-100 rounded-2xl p-6 sm:p-8 shadow-md">
-                <h3 class="font-bold text-gray-900 text-lg mb-4">Nilai Inti Gerakan</h3>
+            <div class="bg-white border border-gray-100 rounded-2xl p-5 sm:p-8 shadow-md">
+                <h3 class="font-bold text-gray-900 text-base sm:text-lg mb-4">Nilai Inti Gerakan</h3>
                 <div class="space-y-4">
-                    <div class="flex gap-4">
-                        <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-brandPurple font-bold text-xs flex-shrink-0">1</div>
+                    <div class="flex gap-3 sm:gap-4">
+                        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-purple-100 flex items-center justify-center text-brandPurple font-bold text-xs flex-shrink-0">1</div>
                         <div>
-                            <h4 class="font-bold text-sm text-gray-900">Kreativitas Kolaboratif</h4>
-                            <p class="text-xs text-gray-500 mt-1">Memecahkan masalah sosial konvensional dengan gagasan modern/digital baru.</p>
+                            <h4 class="font-bold text-xs sm:text-sm text-gray-900">Kreativitas Kolaboratif</h4>
+                            <p class="text-[11px] sm:text-xs text-gray-500 mt-0.5">Memecahkan masalah sosial konvensional dengan gagasan modern/digital baru.</p>
                         </div>
                     </div>
-                    <div class="flex gap-4">
-                        <div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-brandOrange font-bold text-xs flex-shrink-0">2</div>
+                    <div class="flex gap-3 sm:gap-4">
+                        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-100 flex items-center justify-center text-brandOrange font-bold text-xs flex-shrink-0">2</div>
                         <div>
-                            <h4 class="font-bold text-sm text-gray-900">Integritas Tanpa Batas</h4>
-                            <p class="text-xs text-gray-500 mt-1">Seluruh donasi dan implementasi program dipertanggungjawabkan secara transparan.</p>
+                            <h4 class="font-bold text-xs sm:text-sm text-gray-900">Integritas Tanpa Batas</h4>
+                            <p class="text-[11px] sm:text-xs text-gray-500 mt-0.5">Seluruh donasi dan implementasi program dipertanggungjawabkan secara transparan.</p>
                         </div>
                     </div>
-                    <div class="flex gap-4">
-                        <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 font-bold text-xs flex-shrink-0">3</div>
+                    <div class="flex gap-3 sm:gap-4">
+                        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 font-bold text-xs flex-shrink-0">3</div>
                         <div>
-                            <h4 class="font-bold text-sm text-gray-900">Berakar Pada Keberlanjutan</h4>
-                            <p class="text-xs text-gray-500 mt-1">Setiap projek sosial dirancang agar mandiri dijalankan komunitas lokal setelah inkubasi selesai.</p>
+                            <h4 class="font-bold text-xs sm:text-sm text-gray-900">Berakar Pada Keberlanjutan</h4>
+                            <p class="text-[11px] sm:text-xs text-gray-500 mt-0.5">Setiap projek sosial dirancang agar mandiri dijalankan komunitas lokal setelah inkubasi selesai.</p>
                         </div>
                     </div>
                 </div>
@@ -180,14 +182,15 @@
     <!-- ========================================================================= -->
     <!-- 4. PROGRAM SECTION                                                        -->
     <!-- ========================================================================= -->
-    <section id="program" class="px-6 lg:px-16 py-16 lg:py-24 bg-white">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+    <section id="program" class="px-4 sm:px-6 lg:px-16 py-12 lg:py-24 bg-white">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
             <div>
-                <span class="text-xs font-bold text-brandPurple tracking-widest uppercase">Fokus Kerja</span>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-2">Program Utama Kami</h2>
-                <p class="text-gray-500 text-sm mt-1">Klik filter di samping untuk memilah pilar aksi pergerakan.</p>
+                <span class="text-[10px] sm:text-xs font-bold text-brandPurple tracking-widest uppercase">Fokus Kerja</span>
+                <h2 class="text-xl sm:text-3xl font-extrabold text-gray-900 mt-1.5">Program Utama Kami</h2>
+                <p class="text-gray-500 text-xs sm:text-sm mt-1">Gunakan filter di bawah untuk memilah pilar aksi pergerakan.</p>
             </div>
-            <div id="filter-container" class="flex gap-2 text-xs font-semibold mt-4 md:mt-0 overflow-x-auto pb-2 -mx-6 px-6 md:mx-0 md:px-0">
+            <!-- Custom Scrollbar pada HP agar filter bar rapi digeser horizontal -->
+            <div id="filter-container" class="flex gap-2 text-[11px] sm:text-xs font-semibold mt-4 md:mt-0 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 custom-scroll">
                 <button onclick="filterProgram('semua')" class="filter-btn bg-brandPurple text-white px-4 py-2 rounded-full whitespace-nowrap transition">Semua</button>
                 <button onclick="filterProgram('pendidikan')" class="filter-btn bg-gray-100 text-gray-600 px-4 py-2 rounded-full hover:bg-gray-200 whitespace-nowrap transition">Pendidikan</button>
                 <button onclick="filterProgram('sosial')" class="filter-btn bg-gray-100 text-gray-600 px-4 py-2 rounded-full hover:bg-gray-200 whitespace-nowrap transition">Aksi Sosial</button>
@@ -195,41 +198,41 @@
             </div>
         </div>
         
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             <div class="program-card bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="pendidikan">
-                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Mengajar di Pelosok" class="h-44 w-full object-cover">
+                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Mengajar di Pelosok" class="h-40 sm:h-44 w-full object-cover">
                 <div class="p-5">
                     <span class="text-[10px] font-bold text-brandPurple uppercase tracking-wider">Pendidikan</span>
-                    <h4 class="font-bold text-gray-900 text-base mt-1">Mengajar di Pelosok</h4>
-                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">Membuka akses jendela literasi digital serta distribusi buku bagi anak-anak di area terluar Indonesia.</p>
-                    <button onclick="openFormModal('Pendaftaran Relawan - Mengajar di Pelosok')" class="mt-4 text-xs font-bold text-brandPurple hover:text-purple-800 flex items-center gap-1">Ikut Serta <i class="fas fa-arrow-right text-[10px]"></i></button>
+                    <h4 class="font-bold text-gray-900 text-sm sm:text-base mt-1">Mengajar di Pelosok</h4>
+                    <p class="text-[11px] sm:text-xs text-gray-500 mt-2 leading-relaxed">Membuka akses jendela literasi digital serta distribusi buku bagi anak-anak di area terluar Indonesia.</p>
+                    <button onclick="openFormModal('Pendaftaran Relawan - Mengajar di Pelosok')" class="mt-4 text-[11px] sm:text-xs font-bold text-brandPurple hover:text-purple-800 flex items-center gap-1">Ikut Serta <i class="fas fa-arrow-right text-[10px]"></i></button>
                 </div>
             </div>
             <div class="program-card bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="sosial">
-                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=600&q=80" alt="Dapur Pangan Berbagi" class="h-44 w-full object-cover">
+                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=600&q=80" alt="Dapur Pangan Berbagi" class="h-40 sm:h-44 w-full object-cover">
                 <div class="p-5">
                     <span class="text-[10px] font-bold text-brandOrange uppercase tracking-wider">Aksi Sosial</span>
-                    <h4 class="font-bold text-gray-900 text-base mt-1">Dapur Pangan Berbagi</h4>
-                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">Penyediaan makanan sehat bergizi gratis setiap pekan bagi pekerja harian lepas dan dhuafa perkotaan.</p>
-                    <button onclick="openFormModal('Donasi - Dapur Pangan Berbagi')" class="mt-4 text-xs font-bold text-brandOrange hover:text-orange-700 flex items-center gap-1">Bantu Berdonasi <i class="fas fa-arrow-right text-[10px]"></i></button>
+                    <h4 class="font-bold text-gray-900 text-sm sm:text-base mt-1">Dapur Pangan Berbagi</h4>
+                    <p class="text-[11px] sm:text-xs text-gray-500 mt-2 leading-relaxed">Penyediaan makanan sehat bergizi gratis setiap pekan bagi pekerja harian lepas dan dhuafa perkotaan.</p>
+                    <button onclick="openFormModal('Donasi - Dapur Pangan Berbagi')" class="mt-4 text-[11px] sm:text-xs font-bold text-brandOrange hover:text-orange-700 flex items-center gap-1">Bantu Berdonasi <i class="fas fa-arrow-right text-[10px]"></i></button>
                 </div>
             </div>
             <div class="program-card bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="lingkungan">
-                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="Youth for Climate" class="h-44 w-full object-cover">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="Youth for Climate" class="h-40 sm:h-44 w-full object-cover">
                 <div class="p-5">
                     <span class="text-[10px] font-bold text-yellow-600 uppercase tracking-wider">Lingkungan</span>
-                    <h4 class="font-bold text-gray-900 text-base mt-1">Youth for Climate</h4>
-                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">Aksi kolektif reboisasi tanaman mangrove serta pembersihan limbah plastik berkala di area pesisir.</p>
-                    <button onclick="openFormModal('Pendaftaran Relawan - Youth for Climate')" class="mt-4 text-xs font-bold text-yellow-600 hover:text-yellow-700 flex items-center gap-1">Gabung Aksi <i class="fas fa-arrow-right text-[10px]"></i></button>
+                    <h4 class="font-bold text-gray-900 text-sm sm:text-base mt-1">Youth for Climate</h4>
+                    <p class="text-[11px] sm:text-xs text-gray-500 mt-2 leading-relaxed">Aksi kolektif reboisasi tanaman mangrove serta pembersihan limbah plastik berkala di area pesisir.</p>
+                    <button onclick="openFormModal('Pendaftaran Relawan - Youth for Climate')" class="mt-4 text-[11px] sm:text-xs font-bold text-yellow-600 hover:text-yellow-700 flex items-center gap-1">Gabung Aksi <i class="fas fa-arrow-right text-[10px]"></i></button>
                 </div>
             </div>
             <div class="program-card bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="pendidikan">
-                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="Digital Class Workshop" class="h-44 w-full object-cover">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="Digital Class Workshop" class="h-40 sm:h-44 w-full object-cover">
                 <div class="p-5">
                     <span class="text-[10px] font-bold text-blue-600 uppercase tracking-wider">Pendidikan</span>
-                    <h4 class="font-bold text-gray-900 text-base mt-1">Digital Class Workshop</h4>
-                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">Pelatihan digital keterampilan industri (coding, design) khusus untuk anak yatim piatu usia produktif.</p>
-                    <button onclick="openFormModal('Pendaftaran Relawan - Digital Class Workshop')" class="mt-4 text-xs font-bold text-blue-600 hover:text-blue-800 flex items-center gap-1">Daftar Mengajar <i class="fas fa-arrow-right text-[10px]"></i></button>
+                    <h4 class="font-bold text-gray-900 text-sm sm:text-base mt-1">Digital Class Workshop</h4>
+                    <p class="text-[11px] sm:text-xs text-gray-500 mt-2 leading-relaxed">Pelatihan digital keterampilan industri (coding, design) khusus untuk anak yatim piatu usia produktif.</p>
+                    <button onclick="openFormModal('Pendaftaran Relawan - Digital Class Workshop')" class="mt-4 text-[11px] sm:text-xs font-bold text-blue-600 hover:text-blue-800 flex items-center gap-1">Daftar Mengajar <i class="fas fa-arrow-right text-[10px]"></i></button>
                 </div>
             </div>
         </div>
@@ -239,47 +242,47 @@
     <!-- ========================================================================= -->
     <!-- 5. PORTOFOLIO SECTION                                                     -->
     <!-- ========================================================================= -->
-    <section id="portofolio" class="px-6 lg:px-16 py-16 lg:py-24 border-t border-gray-100 bg-gray-50 bg-opacity-40">
-        <div class="max-w-3xl mx-auto text-center mb-12">
-            <span class="text-xs font-bold text-brandPurple tracking-widest uppercase">Laporan Rekam Jejak</span>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-2">Portofolio & Rekam Jejak Dampak</h2>
-            <p class="text-gray-500 text-sm mt-2">Klik salah satu kotak portofolio di bawah untuk memicu munculnya tombol galeri arsip lengkap.</p>
+    <section id="portofolio" class="px-4 sm:px-6 lg:px-16 py-12 lg:py-24 border-t border-gray-100 bg-gray-50 bg-opacity-40">
+        <div class="max-w-3xl mx-auto text-center mb-10">
+            <span class="text-[10px] sm:text-xs font-bold text-brandPurple tracking-widest uppercase">Laporan Rekam Jejak</span>
+            <h2 class="text-xl sm:text-3xl font-extrabold text-gray-900 mt-1.5">Portofolio & Rekam Jejak Dampak</h2>
+            <p class="text-gray-500 text-xs sm:text-sm mt-2">Ketuk salah satu kotak portofolio di bawah untuk memicu munculnya tombol galeri arsip lengkap.</p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
             <div onclick="revealHiddenButton()" class="lg:col-span-8 bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md cursor-pointer flex flex-col justify-between transition">
-                <div class="h-52 sm:h-72 relative group overflow-hidden">
+                <div class="h-48 sm:h-72 relative group overflow-hidden">
                     <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80" alt="Panel Surya Papua" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-brandPurple/20 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center z-10">
-                        <span class="bg-white text-gray-900 font-bold px-5 py-2.5 rounded-full text-xs shadow-lg">Buka Akses Konten</span>
+                        <span class="bg-white text-gray-900 font-bold px-4 py-2 rounded-full text-[10px] sm:text-xs shadow-lg">Buka Akses Konten</span>
                     </div>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                    <span class="absolute bottom-4 left-4 bg-brandPurple text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Proyek Selesai</span>
+                    <span class="absolute bottom-3 left-3 bg-brandPurple text-white text-[9px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Proyek Selesai</span>
                 </div>
-                <div class="p-6">
-                    <span class="text-xs text-gray-400">Desember 2025 • Lokasi: Asmat, Papua</span>
-                    <h3 class="text-lg sm:text-xl font-bold text-gray-900 mt-2">Instalasi Panel Surya & Pojok Baca Digital 5 Sekolah Adat</h3>
-                    <p class="text-gray-600 text-xs sm:text-sm mt-3 leading-relaxed">Penyediaan infrastruktur energi bersih mandiri demi menyokong sarana belajar laptop malam anak-anak adat di pedalaman.</p>
+                <div class="p-5 sm:p-6">
+                    <span class="text-[11px] text-gray-400">Desember 2025 • Lokasi: Asmat, Papua</span>
+                    <h3 class="text-base sm:text-xl font-bold text-gray-900 mt-1.5 sm:text-xl">Instalasi Panel Surya & Pojok Baca Digital 5 Sekolah Adat</h3>
+                    <p class="text-gray-600 text-[11px] sm:text-sm mt-2.5 sm:mt-3 leading-relaxed">Penyediaan infrastruktur energi bersih mandiri demi menyokong sarana belajar laptop malam anak-anak adat di pedalaman.</p>
                 </div>
             </div>
             
-            <div class="lg:col-span-4 flex flex-col gap-4">
-                <div onclick="revealHiddenButton()" class="bg-white p-4 border border-gray-100 rounded-xl flex gap-4 items-center shadow-sm hover:shadow-md cursor-pointer transition">
-                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=150&q=80" alt="Penanaman Bakau" class="w-16 h-16 sm:w-20 sm:h-20 rounded-lg object-cover flex-shrink-0">
+            <div class="lg:col-span-4 flex flex-col gap-3.5">
+                <div onclick="revealHiddenButton()" class="bg-white p-3.5 border border-gray-100 rounded-xl flex gap-3.5 items-center shadow-sm hover:shadow-md cursor-pointer transition">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=150&q=80" alt="Penanaman Bakau" class="w-14 h-14 sm:w-20 sm:h-20 rounded-lg object-cover flex-shrink-0">
                     <div>
                         <span class="text-[9px] font-bold text-emerald-600 uppercase tracking-wider">Maret 2026</span>
                         <h4 class="font-bold text-xs sm:text-sm text-gray-900 line-clamp-2 mt-0.5 leading-tight">Penanaman 3.500 Bibit Bakau di Pesisir Utara Jawa</h4>
                     </div>
                 </div>
-                <div onclick="revealHiddenButton()" class="bg-white p-4 border border-gray-100 rounded-xl flex gap-4 items-center shadow-sm hover:shadow-md cursor-pointer transition">
-                    <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=150&q=80" alt="Kesehatan Anak" class="w-16 h-16 sm:w-20 sm:h-20 rounded-lg object-cover flex-shrink-0">
+                <div onclick="revealHiddenButton()" class="bg-white p-3.5 border border-gray-100 rounded-xl flex gap-3.5 items-center shadow-sm hover:shadow-md cursor-pointer transition">
+                    <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=150&q=80" alt="Kesehatan Anak" class="w-14 h-14 sm:w-20 sm:h-20 rounded-lg object-cover flex-shrink-0">
                     <div>
                         <span class="text-[9px] font-bold text-brandOrange uppercase tracking-wider">Januari 2026</span>
                         <h4 class="font-bold text-xs sm:text-sm text-gray-900 line-clamp-2 mt-0.5 leading-tight">Pemeriksaan Kesehatan Anak di Kampung Pemulung</h4>
                     </div>
                 </div>
-                <div onclick="revealHiddenButton()" class="bg-white p-4 border border-gray-100 rounded-xl flex gap-4 items-center shadow-sm hover:shadow-md cursor-pointer transition">
-                    <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=150&q=80" alt="Beasiswa Yatim" class="w-16 h-16 sm:w-20 sm:h-20 rounded-lg object-cover flex-shrink-0">
+                <div onclick="revealHiddenButton()" class="bg-white p-3.5 border border-gray-100 rounded-xl flex gap-3.5 items-center shadow-sm hover:shadow-md cursor-pointer transition">
+                    <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=150&q=80" alt="Beasiswa Yatim" class="w-14 h-14 sm:w-20 sm:h-20 rounded-lg object-cover flex-shrink-0">
                     <div>
                         <span class="text-[9px] font-bold text-yellow-600 uppercase tracking-wider">Oktober 2025</span>
                         <h4 class="font-bold text-xs sm:text-sm text-gray-900 line-clamp-2 mt-0.5 leading-tight">Penyaluran Dana Beasiswa Pendidikan untuk 45 Yatim</h4>
@@ -289,23 +292,23 @@
         </div>
 
         <div id="portfolio-btn-container" class="max-h-0 opacity-0 overflow-hidden transition-all duration-500 text-center">
-            <button id="toggle-gallery-btn" onclick="togglePortfolioGallery()" class="mt-12 bg-gradient-to-r from-brandPurple to-brandOrange text-white font-extrabold px-10 py-4 rounded-full text-xs sm:text-sm shadow-xl shadow-purple-900/20 transform hover:scale-105 transition duration-300">
+            <button id="toggle-gallery-btn" onclick="togglePortfolioGallery()" class="mt-8 sm:mt-12 bg-gradient-to-r from-brandPurple to-brandOrange text-white font-extrabold px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm shadow-xl shadow-purple-900/20 transform hover:scale-105 transition duration-300">
                 <i class="fas fa-folder-open mr-2"></i> Lihat Semua Portofolio Gerakan
             </button>
         </div>
 
-        <div id="hidden-gallery-section" class="max-h-0 opacity-0 overflow-hidden transition-all duration-700 ease-in-out mt-12">
-            <div class="border-t border-dashed border-gray-300 pt-8">
-                <h3 class="text-gray-900 font-bold text-lg mb-6 flex items-center gap-2"><i class="fas fa-archive text-brandOrange"></i> Arsip Dokumentasi Kegiatan Lengkap</h3>
+        <div id="hidden-gallery-section" class="max-h-0 opacity-0 overflow-hidden transition-all duration-700 ease-in-out mt-8 sm:mt-12">
+            <div class="border-t border-dashed border-gray-300 pt-6 sm:pt-8">
+                <h3 class="text-gray-900 font-bold text-base sm:text-lg mb-4 sm:mb-6 flex items-center gap-2"><i class="fas fa-archive text-brandOrange"></i> Arsip Dokumentasi Kegiatan Lengkap</h3>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
                     <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
                         <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=450&q=80" alt="PAUD Harapan" class="h-36 w-full object-cover">
                         <div class="p-4">
                             <span class="text-[9px] font-bold text-brandPurple uppercase bg-purple-50 px-2 py-0.5 rounded">Pendidikan</span>
                             <span class="block text-[10px] text-gray-400 mt-1.5">Agustus 2025 • Sukabumi</span>
                             <h4 class="font-bold text-gray-900 text-sm mt-1">Renovasi PAUD Harapan</h4>
-                            <p class="text-xs text-gray-500 mt-2 leading-relaxed">Pembangunan ulang komponen atap bocor, pengecatan dinding kelas, serta donasi mainan edukatif ramah anak.</p>
+                            <p class="text-[11px] text-gray-500 mt-1.5 leading-relaxed">Pembangunan ulang komponen atap bocor, pengecatan dinding kelas, serta donasi mainan edukatif ramah anak.</p>
                         </div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
@@ -314,7 +317,7 @@
                             <span class="text-[9px] font-bold text-brandOrange uppercase bg-orange-50 px-2 py-0.5 rounded">Aksi Sosial</span>
                             <span class="block text-[10px] text-gray-400 mt-1.5">Juni 2025 • Gunungkidul</span>
                             <h4 class="font-bold text-gray-900 text-sm mt-1">Pipinisasi Air Bersih Desa</h4>
-                            <p class="text-xs text-gray-500 mt-2 leading-relaxed">Penyaluran pipa sepanjang 1.2 KM dari sumber mata air gua menuju bak penampungan utama warga gersang.</p>
+                            <p class="text-[11px] text-gray-500 mt-1.5 leading-relaxed">Penyaluran pipa sepanjang 1.2 KM dari sumber mata air gua menuju bak penampungan utama warga gersang.</p>
                         </div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
@@ -323,7 +326,7 @@
                             <span class="text-[9px] font-bold text-emerald-600 uppercase bg-emerald-50 px-2 py-0.5 rounded">Lingkungan</span>
                             <span class="block text-[10px] text-gray-400 mt-1.5">April 2025 • Baduy</span>
                             <h4 class="font-bold text-gray-900 text-sm mt-1">Sistem Kompos Mandiri</h4>
-                            <p class="text-xs text-gray-500 mt-2 leading-relaxed">Edukasi pembuatan tangki penimbunan dan pengolahan sampah organik rumah tangga bernilai guna pupuk.</p>
+                            <p class="text-[11px] text-gray-500 mt-1.5 leading-relaxed">Edukasi pembuatan tangki penimbunan dan pengolahan sampah organik rumah tangga bernilai guna pupuk.</p>
                         </div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
@@ -332,7 +335,7 @@
                             <span class="text-[9px] font-bold text-blue-600 uppercase bg-blue-50 px-2 py-0.5 rounded">Inklusi</span>
                             <span class="block text-[10px] text-gray-400 mt-1.5">Maret 2025 • Bandung</span>
                             <h4 class="font-bold text-gray-900 text-sm mt-1">Alat Bantu Disabilitas</h4>
-                            <p class="text-xs text-gray-500 mt-2 leading-relaxed">Distribusi 25 unit kursi roda elektrik serta tongkat sensorik pintar bagi pemuda tunanetra berprestasi.</p>
+                            <p class="text-[11px] text-gray-500 mt-1.5 leading-relaxed">Distribusi 25 unit kursi roda elektrik serta tongkat sensorik pintar bagi pemuda tunanetra berprestasi.</p>
                         </div>
                     </div>
                 </div>
@@ -344,45 +347,45 @@
     <!-- ========================================================================= -->
     <!-- 6. HUBUNGI KAMI SECTION                                                   -->
     <!-- ========================================================================= -->
-    <section id="hubungi-kami" class="px-6 lg:px-16 py-16 lg:py-24 bg-white">
-        <div class="max-w-3xl mx-auto text-center mb-16">
-            <span class="text-xs font-bold text-brandPurple tracking-widest uppercase">Kerja sama lebih lanjut</span>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-2">Hubungi Bagian Informasi Kami</h2>
-            <p class="text-gray-500 text-sm mt-2">Mari kirimkan pesan surat kepada tim sekretariat untuk info lebih lanjut.</p>
+    <section id="hubungi-kami" class="px-4 sm:px-6 lg:px-16 py-12 lg:py-24 bg-white">
+        <div class="max-w-3xl mx-auto text-center mb-10 sm:mb-16">
+            <span class="text-[10px] sm:text-xs font-bold text-brandPurple tracking-widest uppercase">Kerja sama lebih lanjut</span>
+            <h2 class="text-xl sm:text-3xl font-extrabold text-gray-900 mt-1.5">Hubungi Bagian Informasi Kami</h2>
+            <p class="text-gray-500 text-xs sm:text-sm mt-2">Mari kirimkan pesan surat kepada tim sekretariat untuk info lebih lanjut.</p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <div class="lg:col-span-5 space-y-6">
-                <div class="bg-purple-50 p-6 rounded-2xl flex items-start gap-4">
-                    <div class="w-10 h-10 rounded-xl bg-brandPurple flex items-center justify-center text-white text-sm flex-shrink-0"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+            <div class="lg:col-span-5 space-y-4">
+                <div class="bg-purple-50 p-5 sm:p-6 rounded-2xl flex items-start gap-4">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-brandPurple flex items-center justify-center text-white text-xs sm:text-sm flex-shrink-0"><i class="fas fa-map-marker-alt"></i></div>
                     <div>
-                        <h4 class="font-bold text-sm text-gray-900">Alamat Sekretariat Utama</h4>
-                        <p class="text-xs text-gray-600 mt-1 leading-relaxed">Gedung Pemuda Bergerak, Kota Prabumulih, Sumatera Selatan, Indonesia</p>
+                        <h4 class="font-bold text-xs sm:text-sm text-gray-900">Alamat Sekretariat Utama</h4>
+                        <p class="text-[11px] sm:text-xs text-gray-600 mt-1 leading-relaxed">Gedung Pemuda Bergerak, Kota Prabumulih, Sumatera Selatan, Indonesia</p>
                     </div>
                 </div>
-                <div class="bg-orange-50 p-6 rounded-2xl flex items-start gap-4">
-                    <div class="w-10 h-10 rounded-xl bg-brandOrange flex items-center justify-center text-white text-sm flex-shrink-0"><i class="fas fa-envelope"></i></div>
+                <div class="bg-orange-50 p-5 sm:p-6 rounded-2xl flex items-start gap-4">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-brandOrange flex items-center justify-center text-white text-xs sm:text-sm flex-shrink-0"><i class="fas fa-envelope"></i></div>
                     <div>
-                        <h4 class="font-bold text-sm text-gray-900">Email Resmi Korespondensi</h4>
-                        <p class="text-xs text-gray-600 mt-1">creativemovements.id@gmail.com</p>
+                        <h4 class="font-bold text-xs sm:text-sm text-gray-900">Email Resmi Korespondensi</h4>
+                        <p class="text-[11px] sm:text-xs text-gray-600 mt-1">creativemovements.id@gmail.com</p>
                     </div>
                 </div>
             </div>
 
-            <div class="lg:col-span-7 bg-white border border-gray-100 rounded-2xl p-6 sm:p-8 shadow-md">
+            <div class="lg:col-span-7 bg-white border border-gray-100 rounded-2xl p-5 sm:p-8 shadow-md">
                 <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Nama Lengkap *</label>
+                            <label class="block text-[10px] font-bold text-gray-700 uppercase mb-1.5">Nama Lengkap *</label>
                             <input type="text" required class="w-full px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs focus:outline-none focus:border-brandPurple transition">
                         </div>
                         <div>
-                            <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Alamat Email *</label>
+                            <label class="block text-[10px] font-bold text-gray-700 uppercase mb-1.5">Alamat Email *</label>
                             <input type="email" required class="w-full px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs focus:outline-none focus:border-brandPurple transition">
                         </div>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Isi Pesan Surat *</label>
+                        <label class="block text-[10px] font-bold text-gray-700 uppercase mb-1.5">Isi Pesan Surat *</label>
                         <textarea required rows="4" placeholder="Tulis rincian pertanyaan Anda di sini..." class="w-full px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs focus:outline-none focus:border-brandPurple transition resize-none"></textarea>
                     </div>
                     <button type="submit" class="w-full bg-brandPurple hover:bg-purple-800 text-white font-bold py-3 rounded-xl text-xs shadow-md shadow-purple-100 transition">Kirim Pesan Sekarang</button>
@@ -392,103 +395,106 @@
     </section>
 
 
-    <section id="kerja-sama" class="mx-6 lg:mx-16 my-12 p-8 sm:p-12 rounded-3xl bg-slate-900 text-white relative overflow-hidden">
+    <!-- PARTNERSHIP CARD CONTAINER -->
+    <section id="kerja-sama" class="mx-4 sm:mx-6 lg:mx-16 my-8 sm:my-12 p-6 sm:p-12 rounded-3xl bg-slate-900 text-white relative overflow-hidden shadow-xl">
         <div class="absolute w-64 h-64 bg-brandPurple rounded-full blur-3xl opacity-20 -top-12 -left-12"></div>
         <div class="absolute w-64 h-64 bg-brandOrange rounded-full blur-3xl opacity-20 -bottom-12 -right-12"></div>
         
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center relative z-10">
             <div class="lg:col-span-5 text-center lg:text-left">
-                <span class="bg-brandOrange text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Kemitraan Strategis</span>
-                <h3 class="text-2xl lg:text-3xl font-bold mt-3">Mari Berkolaborasi <br class="hidden lg:inline">Menciptakan Dampak</h3>
-                <p class="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">Kami membuka peluang kolaborasi bagi Perusahaan (CSR), Instansi Pemerintahan, Lembaga Swadaya, maupun Media Partner untuk memperluas jangkauan kebermanfaatan sosial.</p>
+                <span class="bg-brandOrange text-white text-[9px] sm:text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block">Kemitraan Strategis</span>
+                <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold mt-3 leading-tight">Mari Berkolaborasi <br class="hidden lg:inline">Menciptakan Dampak</h3>
+                <p class="text-slate-400 text-[11px] sm:text-sm mt-2.5 leading-relaxed">Kami membuka peluang kolaborasi bagi Perusahaan (CSR), Instansi Pemerintahan, Lembaga Swadaya, maupun Media Partner untuk memperluas jangkauan kebermanfaatan sosial.</p>
             </div>
             
-            <div class="lg:col-span-7 bg-slate-800/80 backdrop-blur border border-slate-700 p-6 sm:p-8 rounded-2xl">
-                <form onsubmit="handlePartnershipSubmit(event)" class="space-y-4 text-slate-200">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="lg:col-span-7 bg-slate-800/80 backdrop-blur border border-slate-700 p-5 sm:p-8 rounded-2xl">
+                <form onsubmit="handlePartnershipSubmit(event)" class="space-y-3.5 text-slate-200">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                         <div>
-                            <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Nama Instansi / Komunitas *</label>
-                            <input type="text" required class="w-full px-4 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-brandOrange">
+                            <label class="block text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">Nama Instansi / Komunitas *</label>
+                            <input type="text" required class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-brandOrange">
                         </div>
                         <div>
-                            <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Jenis Kolaborasi *</label>
-                            <select required class="w-full px-4 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-brandOrange">
+                            <label class="block text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">Jenis Kolaborasi *</label>
+                            <select required class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-brandOrange">
                                 <option value="Pendanaan Program (CSR)">Pendanaan Program (CSR)</option>
                                 <option value="Aliansi / Gerakan Bersama">Aliansi / Gerakan Bersama</option>
                                 <option value="Media Partner / Publikasi">Media Partner / Publikasi</option>
                             </select>
                         </div>
                     </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                         <div>
-                            <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Email Kontak *</label>
-                            <input type="email" required class="w-full px-4 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-brandOrange">
+                            <label class="block text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">Email Kontak *</label>
+                            <input type="email" required class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-brandOrange">
                         </div>
                         <div>
-                            <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Nomor WhatsApp *</label>
-                            <input type="tel" required class="w-full px-4 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-brandOrange">
+                            <label class="block text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">Nomor WhatsApp *</label>
+                            <input type="tel" required class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-brandOrange">
                         </div>
                     </div>
-                    <button type="submit" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-black py-3 rounded-xl text-xs shadow-lg transition">Ajukan Proposal Kerja Sama Resmi</button>
+                    <button type="submit" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-black py-3 rounded-xl text-xs shadow-lg transition mt-2">Ajukan Proposal Kerja Sama Resmi</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-950 text-slate-400 px-6 lg:px-16 py-12 border-t border-gray-900 text-xs sm:text-sm">
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
+    <!-- FOOTER SECTOR -->
+    <footer class="bg-gray-950 text-slate-400 px-4 sm:px-6 lg:px-16 py-10 sm:py-12 border-t border-gray-900 text-xs sm:text-sm">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-6 sm:gap-8 mb-8 sm:mb-12">
             <div class="col-span-2">
-                <div class="font-black text-lg text-white tracking-tight flex items-center gap-3">
+                <div class="font-black text-base sm:text-lg text-white tracking-tight flex items-center gap-2.5">
                     <img src="https://raw.githubusercontent.com/kayunastudio/creativemovements.id/main/logo-cm.png" alt="Creative Movements Logo" class="w-6 h-6 object-contain">
                     Creative Movements
                 </div>
-                <p class="text-xs text-gray-500 mt-3 max-w-xs leading-relaxed">Wadah kepemudaan independen resmi nasional yang berfokus mendorong akselerasi kesejahteraan sosial lewat gagasan kreatif.</p>
+                <p class="text-[11px] sm:text-xs text-gray-500 mt-3 max-w-xs leading-relaxed">Wadah kepemudaan independen resmi nasional yang berfokus mendorong akselerasi kesejahteraan sosial lewat gagasan kreatif.</p>
             </div>
             <div>
-                <h5 class="text-xs font-bold text-gray-300 uppercase tracking-wider mb-4">Navigasi</h5>
-                <ul class="space-y-2 text-xs text-gray-500">
+                <h5 class="text-[10px] sm:text-xs font-bold text-gray-300 uppercase tracking-wider mb-3">Navigasi</h5>
+                <ul class="space-y-1.5 text-xs text-gray-500">
                     <li><a href="#beranda" class="hover:text-white">Beranda Utama</a></li>
                     <li><a href="#tentang-kami" class="hover:text-white">Tentang Kami</a></li>
                     <li><a href="#program" class="hover:text-white">Program Fokus</a></li>
                 </ul>
             </div>
             <div>
-                <h5 class="text-xs font-bold text-gray-300 uppercase tracking-wider mb-4">Tautan Hukum</h5>
-                <ul class="space-y-2 text-xs text-gray-500">
+                <h5 class="text-[10px] sm:text-xs font-bold text-gray-300 uppercase tracking-wider mb-3">Tautan Hukum</h5>
+                <ul class="space-y-1.5 text-xs text-gray-500">
                     <li><a href="#" onclick="event.preventDefault(); toggleModal('Kebijakan Privasi')" class="hover:text-white">Kebijakan Privasi</a></li>
                     <li><a href="#" onclick="event.preventDefault(); toggleModal('Syarat & Ketentuan')" class="hover:text-white">Syarat Ketentuan</a></li>
                 </ul>
             </div>
         </div>
-        <div class="border-t border-gray-100 pt-6 flex flex-col sm:flex-row justify-between items-center text-[11px] text-gray-600 gap-2">
+        <div class="border-t border-gray-900 pt-6 flex flex-col sm:flex-row justify-between items-center text-[10px] sm:text-[11px] text-gray-600 gap-2 text-center sm:text-left">
             <p>© 2026 Creative Movements Organization. Seluruh hak cipta dilindungi.</p>
         </div>
     </footer>
 
 
+    <!-- DIALOG POPUPS CONTAINER -->
     <div id="general-modal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-sm w-full p-6 text-center shadow-2xl transform scale-95 transition-all">
-            <div class="w-12 h-12 rounded-full bg-purple-100 text-brandPurple flex items-center justify-center mx-auto text-xl mb-4"><i class="fas fa-info-circle"></i></div>
+        <div class="bg-white rounded-2xl max-w-sm w-full p-5 sm:p-6 text-center shadow-2xl transform scale-95 transition-all">
+            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-purple-100 text-brandPurple flex items-center justify-center mx-auto text-lg sm:text-xl mb-3.5"><i class="fas fa-info-circle"></i></div>
             <h3 class="font-bold text-gray-950 text-base">Notifikasi Sistem</h3>
-            <p id="modal-message" class="text-xs text-gray-600 mt-2 leading-relaxed"></p>
-            <button onclick="closeModal()" class="mt-5 w-full bg-brandPurple hover:bg-purple-800 text-white font-bold py-2.5 rounded-xl text-xs transition">Tutup Dialog</button>
+            <p id="modal-message" class="text-[11px] sm:text-xs text-gray-600 mt-2 leading-relaxed"></p>
+            <button onclick="closeModal()" class="mt-4 sm:mt-5 w-full bg-brandPurple hover:bg-purple-800 text-white font-bold py-2.5 rounded-xl text-xs transition">Tutup Dialog</button>
         </div>
     </div>
 
     <div id="form-modal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
-            <button onclick="closeFormModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600"><i class="fas fa-times"></i></button>
-            <h3 id="form-title" class="font-bold text-gray-900 text-base mb-1">Formulir Pendaftaran</h3>
-            <p class="text-[11px] text-gray-400 mb-4">Silakan isi data untuk segera diverifikasi oleh tim internal.</p>
+        <div class="bg-white rounded-2xl max-w-md w-full p-5 sm:p-6 shadow-2xl relative">
+            <button onclick="closeFormModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 px-1"><i class="fas fa-times"></i></button>
+            <h3 id="form-title" class="font-bold text-gray-900 text-base mb-0.5">Formulir Pendaftaran</h3>
+            <p class="text-[10px] sm:text-[11px] text-gray-400 mb-3.5">Silakan isi data untuk segera diverifikasi oleh tim internal.</p>
             
-            <form onsubmit="handleFormSubmit(event)" class="space-y-3.5">
+            <form onsubmit="handleFormSubmit(event)" class="space-y-3">
                 <div>
-                    <label class="block text-[10px] font-bold text-gray-700 uppercase mb-1">Nama Pemohon *</label>
-                    <input type="text" required class="w-full px-3 py-2 rounded-lg bg-gray-50 border border-gray-200 text-xs focus:outline-none focus:border-brandPurple">
+                    <label class="block text-[9px] font-bold text-gray-700 uppercase mb-1">Nama Pemohon *</label>
+                    <input type="text" required class="w-full px-3 py-2.5 rounded-lg bg-gray-50 border border-gray-200 text-xs focus:outline-none focus:border-brandPurple">
                 </div>
                 <div>
-                    <label class="block text-[10px] font-bold text-gray-700 uppercase mb-1">Nomor WhatsApp Aktif *</label>
-                    <input type="tel" required placeholder="08xxxxxxxxxx" class="w-full px-3 py-2 rounded-lg bg-gray-50 border border-gray-200 text-xs focus:outline-none focus:border-brandPurple">
+                    <label class="block text-[9px] font-bold text-gray-700 uppercase mb-1">Nomor WhatsApp Aktif *</label>
+                    <input type="tel" required placeholder="08xxxxxxxxxx" class="w-full px-3 py-2.5 rounded-lg bg-gray-50 border border-gray-200 text-xs focus:outline-none focus:border-brandPurple">
                 </div>
                 <button type="submit" class="w-full mt-2 bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl text-xs shadow-md transition">Kirim Data Pendaftaran</button>
             </form>
@@ -496,8 +502,8 @@
     </div>
 
 
+    <!-- CORE LOGIC SYSTEM JAVASCRIPT ENGINE -->
     <script>
-        // SHEETDB API URL CONFIGURATION
         const SHEETDB_API_URL = 'https://sheetdb.io/api/v1/egfpeokmjqlui';
 
         let isGalleryOpen = false;
@@ -535,7 +541,6 @@
             }
         }
 
-        // --- INTERAKSI DATA HANDLERS ---
         function handleContactSubmit(e) {
             e.preventDefault();
             const formData = {
@@ -615,7 +620,6 @@
             });
         }
 
-        // --- MENU & SCROLL RESPONSIVE UTILITIES ---
         const menuBtn = document.getElementById('menu-btn');
         const closeMenuBtn = document.getElementById('close-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
